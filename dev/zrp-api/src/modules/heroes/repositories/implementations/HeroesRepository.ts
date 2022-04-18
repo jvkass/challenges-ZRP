@@ -22,6 +22,11 @@ class HeroesRepository implements IHeroesRepository {
     await this.repository.save(hero);
   }
 
+  async findAll(): Promise<Hero[] | undefined> {
+    const heroes = await this.repository.find();
+    return heroes;
+  }
+
   async findByName(name: string): Promise<Hero | undefined> {
     const hero = await this.repository.findOne({ name });
     return hero;

@@ -6,6 +6,7 @@ import { Hero } from "../entities/Hero";
 
 interface IHeroesRepository {
   create(data: ICreateHeroDTO): Promise<void>;
+  findAll(): Promise<Hero[] | undefined>;
   findByName(name: string): Promise<Hero | undefined>;
   findByRank(rank: string): Promise<Hero | undefined>;
   findById(id: string): Promise<Hero | undefined>;
