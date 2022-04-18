@@ -12,8 +12,8 @@ class Hero {
   @Column()
   rank: string;
 
-  @Column()
-  location: JSON;
+  @Column("simple-json")
+  location: { lat: number, lng: number };
 
   @CreateDateColumn()
   created_at: Date;
