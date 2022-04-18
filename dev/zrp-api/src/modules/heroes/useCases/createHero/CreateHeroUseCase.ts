@@ -7,7 +7,7 @@ import { IHeroesRepository } from "../../repositories/IHeroesRepository";
 @injectable()
 class CreateHeroUseCase {
     constructor(
-        @inject("UsersRepository")
+        @inject("HeroesRepository")
         private heroesRepository: IHeroesRepository
     ) { }
 
@@ -17,7 +17,7 @@ class CreateHeroUseCase {
         const heroAlreadyExists = await this.heroesRepository.findByName(name);  
 
         if (heroAlreadyExists !== undefined) {
-            throw new AppError("User already exists");
+            throw new AppError("Hero already exists");
         }
 
         await this.heroesRepository.create({
