@@ -1,6 +1,7 @@
-import { getRepository, Repository } from "typeorm";
+import { getRepository, Repository, UpdateResult } from "typeorm";
 
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
+import { IUpdateUserDTO } from "../../dtos/IUpdateUserDTO";
 import { User } from "../../entities/User";
 import { IUsersRepository } from "../IUsersRepository";
 
@@ -31,5 +32,19 @@ class UsersRepository implements IUsersRepository {
     return user;
   }
 
+  async update({
+    id,
+    name,
+    username,
+    password,
+  }: IUpdateUserDTO): Promise<UpdateResult> {
+    const updateResult = await this.repository.update(id, {
+      name,
+      username,
+      password,
+    });
+
+    return updateResult;
+  }
 }
 export { UsersRepository };
