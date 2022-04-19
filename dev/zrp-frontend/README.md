@@ -1,6 +1,6 @@
 # Projeto Web Frontend React Delfosim
 
-O projeto tem como base o create-react-app e se faz da utilização de Typescript, sass, Mirage JS, Context API e Hooks
+O projeto tem como base o create-react-app e se faz da utilização de Typescript, sass, Context API e Hooks
 
 ## Scripts utilizados
 ### `yarn start`
