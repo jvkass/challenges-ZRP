@@ -1,5 +1,5 @@
 
-import { UpdateResult } from "typeorm";
+import { UpdateResult, DeleteResult } from "typeorm";
 import { ICreateHeroDTO } from "../dtos/ICreateHeroDTO";
 import { IUpdateHeroDTO } from "../dtos/IUpdateHeroDTO";
 import { Hero } from "../entities/Hero";
@@ -11,6 +11,7 @@ interface IHeroesRepository {
   findByRank(rank: string): Promise<Hero | undefined>;
   findById(id: string): Promise<Hero | undefined>;
   update(data: IUpdateHeroDTO): Promise<UpdateResult>;
+  delete(id: string): Promise<DeleteResult>;
 }
 
 export { IHeroesRepository };

@@ -1,10 +1,12 @@
-import { getRepository, Repository, UpdateResult } from "typeorm";
+import { DeleteResult, getRepository, Repository, UpdateResult } from "typeorm";
 
 import { ICreateHeroDTO } from "../../dtos/ICreateHeroDTO";
 import { IUpdateHeroDTO } from "../../dtos/IUpdateHeroDTO";
 import { Hero } from "../../entities/Hero";
 import { IHeroesRepository } from "../IHeroesRepository";
-
+interface IRequestDelete {
+  id: string;
+}
 class HeroesRepository implements IHeroesRepository {
   private repository: Repository<Hero>;
 
@@ -55,6 +57,14 @@ class HeroesRepository implements IHeroesRepository {
     });
 
     return updateResult;
+  }
+
+  async delete(
+    id
+  : string): Promise<DeleteResult> {
+    const deleteResult = await this.repository.delete(id);
+
+    return deleteResult;
   }
 }
 export { HeroesRepository };
