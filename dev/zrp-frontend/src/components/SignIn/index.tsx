@@ -1,12 +1,16 @@
 import { FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.scss';
 
 export function SignIn() {
+
+    const navigate = useNavigate();
 
     async function handleLogin(event: FormEvent) {
         event.preventDefault();
 
         console.log("Logando...");
+        navigate('/home');
     }
 
     return (

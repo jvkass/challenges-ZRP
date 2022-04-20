@@ -1,11 +1,14 @@
-import { SignIn } from './components/SignIn';
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './routes';
 import './styles/global.scss'
 
 export function App() {
 
   return (
     <>
-      <SignIn />
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </>
   );
 }
