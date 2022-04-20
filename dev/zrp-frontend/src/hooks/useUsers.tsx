@@ -29,9 +29,10 @@ export function UsersProvider({ children }: UsersProviderProps) {
     const [loggedToken, setLoggedToken] = useState<string>('');
 
     async function loginUser(loginUserInput: LoginUserInput) {
-        const response = await api.post('sessions/', {
-            ...loginUserInput,
-        })
+
+        const response = await api.post('/sessions', 
+            loginUserInput
+        )
 
         const { token, user } = response.data;
 
