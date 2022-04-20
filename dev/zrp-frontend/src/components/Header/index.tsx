@@ -12,6 +12,7 @@ export function Header() {
                 <img src={logoImg} alt="zrp" />
                 <nav>
                     <Link className='' to='/home'>Home</Link>
+                    <Link className='' to='/hero'>Hero</Link>
                 </nav>
 
                 <label>Seja bem vindo, {loggedUser?.name}</label>
